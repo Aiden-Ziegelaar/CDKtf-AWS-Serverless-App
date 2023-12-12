@@ -18,8 +18,25 @@ class MyStack extends TerraformStack {
 
     new ArchiveProvider(this, "archive", {});
 
-    new iamPolicy.IamPolicy(this, "HelloWorld-Ts-Policy", {
-      
+    let secretsManagerPolicy = new iamPolicy.IamPolicy(this, "Policy-SecretsManager-RandomPassword", {
+      name: "Policy-SecretsManager-RandomPassword",
+      policy: JSON.stringify({
+        Version: "2012-10-17",
+        Statement: [
+          {
+            Action: [
+              "secretsmanager:GetRandomPassword",
+            ],
+            Effect: "Allow",
+            Resource: "*",
+          },
+        ],
+      }),
+    })
+
+    new TsLambdaFunction(this, "HelloWorld-Ts-Random", {
+      filepath: `${rootDir}build/helloworldRandom`,
+      policiesToAttach: [secretsManagerPolicy]
     })
 
     new TsLambdaFunction(this, "HelloWorld-Ts", {
