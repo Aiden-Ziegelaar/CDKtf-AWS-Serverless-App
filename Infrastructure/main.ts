@@ -51,3 +51,11 @@ const app = new App();
 new MyStack(app, "Infrastructure", {environment: "dev"});
 new MyStack(app, "Infrastructure-prod", {environment: "prod"});
 app.synth();
+
+
+new DynamodbTable(this, "first-table", {
+  name: `a-dynamo-table`,
+  hashKey: "pKey",
+  attribute: [{ name: "id", type: "S" }],
+  billingMode: "PAY_PER_REQUEST",
+});
