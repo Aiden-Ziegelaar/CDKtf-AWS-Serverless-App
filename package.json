@@ -1,0 +1,27 @@
+{
+  "name": "cdktf-aws-serverless-app",
+  "version": "1.0.0",
+  "description": "Monorepo for cdk serverless application",
+  "module": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aiden-Ziegelaar/CDKtf-AWS-Serverless-App.git"
+  },
+  "author": "Aiden Ziegelaar",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Aiden-Ziegelaar/CDKtf-AWS-Serverless-App/issues"
+  },
+  "homepage": "https://github.com/Aiden-Ziegelaar/CDKtf-AWS-Serverless-App#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.3",
+    "esbuild": "^0.19.8",
+    "glob": "^10.3.10"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.468.0"
+  }
+}
