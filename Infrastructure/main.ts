@@ -5,6 +5,7 @@ import { TsLambdaFunction } from "./constructs/lambda";
 import { AwsProvider } from "@cdktf/provider-aws/lib/provider";
 import { ArchiveProvider } from "@cdktf/provider-archive/lib/provider";
 import { iamPolicy } from "@cdktf/provider-aws";
+import { RdsSmCluster } from "./constructs/RdsSmCluster";
 
 let rootDir = process.cwd() + "/../";
 
@@ -41,6 +42,11 @@ class MyStack extends TerraformStack {
 
     new TsLambdaFunction(this, "HelloWorld-Ts", {
       filepath: `${rootDir}build/helloworld`
+    })
+
+    new RdsSmCluster(this, "RdsSmCluster", {
+      manage_master_user_password: true,
+      engine: "aurora-postgresql",
     })
   }
 }

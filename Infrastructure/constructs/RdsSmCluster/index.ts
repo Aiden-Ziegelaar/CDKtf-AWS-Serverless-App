@@ -3,7 +3,7 @@ import { Construct } from "constructs";
 
 interface RdsSmClusterConfig extends RdsClusterConfig {
     manage_master_user_password: true;
-    password: never;
+    password?: never;
 }
 
 export class RdsSmCluster extends RdsCluster {
