@@ -6,7 +6,7 @@ interface RdsSmClusterConfig extends RdsClusterConfig {
     password: never;
 }
 
-export class RdsSmClusterInstance extends RdsCluster {
+export class RdsSmCluster extends RdsCluster {
     constructor(
         scope: Construct, 
         name: string, 
